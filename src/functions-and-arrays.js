@@ -74,8 +74,7 @@ function sumNumbers(numbers) {
 
   for(let i=0; i<numbers.length; i++){ 
     sum += numbers[i]
-      if(numbers.length === 1)
-      return numbers[i]
+     
    }
 
   return sum
@@ -93,24 +92,39 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
+function averageNumbers(numbersAvg) {
 
+  
   let sum = 0;
-  let average = sum / numbersAvg.length;
-
+  
+  if (numbersAvg.length === 0){
+    return null;
+  }
+  
   for (let i=0; i<numbersAvg.length; i++){
-    sum += numbersAvg[i]
+    sum += numbersAvg[i];
   }; 
-
-  return average
+  
+  return sum / numbersAvg.length;
 }
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { 
+function averageWordLength(wordsArr) { 
 
+  if (wordsArr.length === 0){
+    return null
+  }
+  let wordslength = 0;
+
+  for (let i=0; i<wordsArr.length; i++){
+    wordslength += wordsArr[i].length
+  }
+return wordslength / wordsArr.length;
 
 
 }
@@ -133,14 +147,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0 ){
+    return null
+  }
+
+  let uniqueArray = []
+  
+  for (let i=0; i < wordsUnique.length; i++){
+    if (uniqueArray.includes(wordsUnique[i]) === false) {
+      uniqueArray.push(wordsUnique[i])
+    }
+    
+  }
+  return uniqueArray
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind,word) {
+
+  if (wordsFind.length === 0 ){
+    return null
+  } 
+
+  return wordsFind.includes(word)
+
+}
 
 
 
@@ -159,9 +196,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {
+function howManyTimes(wordsCount,word) {
 
+  if (wordsCount.length === 0){
+    return 0
+  }
 
+  let repetitions = 0
+
+  for (let i=0; i<wordsCount.length; i++){
+    if (word === wordsCount[i]){
+      repetitions ++
+    } 
+  }
+  return repetitions
 
 }
 
